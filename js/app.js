@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         this.pause = document.getElementById('pause');
         this.gliderBtn = document.getElementById('glider');
         this.acornBtn = document.getElementById('acorn');
+        this.randomBtn = document.getElementById('random');
 
 
         this.createBoard = function () {
@@ -112,6 +113,26 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
         };
 
+        this.randomGame = () => {
+            this.randomBoard = [];
+            for (let i = 0; i < this.height; i++) {
+                for (let j = 0; j < this.width; j++) {
+                    const randomize = Math.floor(Math.random()*2);
+                    if (randomize === 0){
+                        this.randomBoard.push(0)
+                    } else {
+                        this.randomBoard.push(1)
+                    }
+                }
+            }
+            for (let i = 0; i < this.cells.length; i++) {
+                this.cells[i].classList.remove('live');
+                if (this.randomBoard[i] === 1) {
+                    this.cells[i].classList.add('live');
+                }
+            }
+        };
+
         this.startGame = () => {
             this.idInterval = setInterval(this.printNextGeneration, 200);
             this.play.disabled = true;
@@ -126,10 +147,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
         this.pause.addEventListener('click', this.pauseGame);
         this.gliderBtn.addEventListener('click', () => this.glider(3, 3));
         this.acornBtn.addEventListener('click', () => this.acorn((this.width / 2), (this.height / 2)));
+        this.randomBtn.addEventListener('click', () => this.randomGame());
     }
 
-    const game = new GameOfLife(80, 80);
+    const game = new GameOfLife(60, 60);
     game.createBoard();
+
 
 });
 
