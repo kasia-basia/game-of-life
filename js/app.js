@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         this.gliderBtn = document.getElementById('glider');
         this.acornBtn = document.getElementById('acorn');
         this.randomBtn = document.getElementById('random');
+        this.refreshButton = document.getElementById('refresh');
 
 
         this.createBoard = function () {
@@ -143,16 +144,24 @@ document.addEventListener("DOMContentLoaded", function (event) {
             this.play.disabled = false;
         };
 
+        this.refreshGame = () => {
+            window.location.reload();
+        };
+
+
+
         this.play.addEventListener('click', this.startGame);
         this.pause.addEventListener('click', this.pauseGame);
         this.gliderBtn.addEventListener('click', () => this.glider(3, 3));
         this.acornBtn.addEventListener('click', () => this.acorn((this.width / 2), (this.height / 2)));
         this.randomBtn.addEventListener('click', () => this.randomGame());
+        this.refreshButton.addEventListener('click', () => this.refreshGame());
+
+
     }
 
-    const game = new GameOfLife(60, 60);
+    const game = new GameOfLife(100, 60);
     game.createBoard();
-
 
 });
 
