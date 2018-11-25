@@ -11,5 +11,5 @@ Every cell interacts with its eight neighbours, which are the cells that are hor
 * Any live cell with more than three live neighbors dies, as if by overpopulation.
 * Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
 
-# Tool used
+# Tools used
    JavaScript, HTML, CSS
