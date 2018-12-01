@@ -1,4 +1,6 @@
-<div style='text-align: center'><img src='http://kasialach.pl/images/cell.svg' width='100px'></div>
+# Game of Life
+
+<img src='http://kasialach.pl/images/cell.svg' width='100px'>
 
 
 #### This is a simple JavaScript app based on a cellular automaton devised by the British mathematician John Conway in 1970. You can interact with the initial configuration and observe how it evolves.
